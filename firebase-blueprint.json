@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "018 Bokone Bophirima fashion garment or accessory",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 200 },
+        "slug": { "type": "string", "maxLength": 200 },
+        "shortDescription": { "type": "string", "maxLength": 500 },
+        "description": { "type": "string", "maxLength": 5000 },
+        "sku": { "type": "string", "maxLength": 100 },
+        "brand": { "type": "string", "maxLength": 100 },
+        "category": { "type": "string", "maxLength": 100 },
+        "collection": { "type": "string", "maxLength": 100 },
+        "gender": { "type": "string", "enum": ["men", "women", "unisex", "kids"] },
+        "productType": { "type": "string", "maxLength": 100 },
+        "basePrice": { "type": "number" },
+        "salePrice": { "type": "number" },
+        "status": { "type": "string", "enum": ["draft", "published", "archived"] },
+        "featured": { "type": "boolean" },
+        "bestSeller": { "type": "boolean" },
+        "newArrival": { "type": "boolean" },
+        "onSale": { "type": "boolean" },
+        "published": { "type": "boolean" },
+        "tags": { "type": "array" },
+        "materials": { "type": "array" },
+        "careInstructions": { "type": "array" },
+        "images": { "type": "array" },
+        "variants": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "slug", "sku", "category", "basePrice", "variants"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order for 018 goods",
+      "type": "object",
+      "properties": {
+        "orderNumber": { "type": "string", "maxLength": 64 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "customerEmail": { "type": "string", "maxLength": 128 },
+        "customerName": { "type": "string", "maxLength": 128 },
+        "customerPhone": { "type": "string", "maxLength": 32 },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "shippingFee": { "type": "number" },
+        "discount": { "type": "number" },
+        "total": { "type": "number" },
+        "shippingAddress": { "type": "object" },
+        "paymentMethod": { "type": "string", "enum": ["card", "instant_eft", "snapscan", "cash_on_delivery", "wallet"] },
+        "paymentStatus": { "type": "string", "enum": ["pending", "paid", "failed", "refunded"] },
+        "orderStatus": { "type": "string", "enum": ["processing", "confirmed", "shipped", "out_for_delivery", "delivered", "cancelled"] },
+        "trackingNumber": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["orderNumber", "items", "total", "paymentMethod", "orderStatus"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Customer review on an item",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "customerName": { "type": "string", "maxLength": 128 },
+        "rating": { "type": "number" },
+        "title": { "type": "string", "maxLength": 200 },
+        "comment": { "type": "string", "maxLength": 2000 },
+        "verifiedPurchase": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["productId", "customerName", "rating", "comment"]
+    },
+    "User": {
+      "title": "User",
+      "description": "User customer profile or administrator",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 128 },
+        "fullName": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "role": { "type": "string", "enum": ["customer", "admin", "store_manager"] },
+        "addresses": { "type": "array" },
+        "loyaltyPoints": { "type": "number" },
+        "walletBalance": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Store operational parameters and policies",
+      "type": "object",
+      "properties": {
+        "storeName": { "type": "string", "maxLength": 100 },
+        "announcement": { "type": "string", "maxLength": 300 },
+        "supportWhatsapp": { "type": "string", "maxLength": 32 },
+        "supportEmail": { "type": "string", "maxLength": 100 },
+        "freeShippingThreshold": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["storeName", "freeShippingThreshold"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Active products catalog for 018 Bokone Bophirima"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer purchase orders and status tracking"
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Product customer ratings and reviews"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Customer account data and roles"
+    },
+    "/site_settings/{settingId}": {
+      "schema": "SiteSettings",
+      "description": "Global store configuration and operational parameters"
+    }
+  }
+}

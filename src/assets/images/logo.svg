@@ -1,0 +1,51 @@
+<svg viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 018 Brand Mark -->
+  <g id="mark-018">
+    <!-- 0 numeral -->
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M58 12 C86 12 108 34 108 63 V87 C108 116 86 138 58 138 C30 138 8 116 8 87 V63 C8 34 30 12 58 12 Z M58 42 C70 42 78 51 78 63 V87 C78 99 70 108 58 108 C46 108 38 99 38 87 V63 C38 51 46 42 58 42 Z"
+      fill="#F35D1F"
+    />
+
+    <!-- 1 numeral with top serif -->
+    <path
+      d="M125 44 L175 14 V138 H147 V48 L125 58 Z"
+      fill="#F35D1F"
+    />
+
+    <!-- 8 numeral shape with cutouts and central dots -->
+    <g id="numeral-8">
+      <!-- 8 base orange block -->
+      <path
+        d="M190 14 H235 C255 14 268 28 268 48 C268 62 258 72 245 76 C262 80 274 92 274 112 C274 128 260 138 238 138 H190 V14 Z"
+        fill="#F35D1F"
+      />
+      <!-- Top loop cutout (background showing through) -->
+      <circle cx="232" cy="48" r="18" fill="var(--bg-cutout, #FFFFFF)" />
+      <!-- Top loop center dot -->
+      <circle cx="232" cy="48" r="8" fill="#F35D1F" />
+      <!-- Bottom loop cutout (background showing through) -->
+      <circle cx="235" cy="106" r="22" fill="var(--bg-cutout, #FFFFFF)" />
+      <!-- Bottom loop center dot -->
+      <circle cx="235" cy="106" r="10" fill="#F35D1F" />
+    </g>
+
+    <!-- ® Registered Trademark -->
+    <g transform="translate(282, 10)">
+      <circle cx="8" cy="8" r="7.5" stroke="#F35D1F" stroke-width="1.5" fill="none" />
+      <text x="8" y="11.5" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="8.5" fill="#F35D1F">R</text>
+    </g>
+  </g>
+
+  <!-- zerooneeight™ Wordmark -->
+  <g id="wordmark" transform="translate(8, 155)">
+    <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="19" font-weight="800" letter-spacing="-0.03em">
+      <tspan fill="currentColor">zero</tspan>
+      <tspan fill="#F35D1F">one</tspan>
+      <tspan fill="currentColor">eight</tspan>
+      <tspan fill="currentColor" font-size="11" dy="-6">™</tspan>
+    </text>
+  </g>
+</svg>

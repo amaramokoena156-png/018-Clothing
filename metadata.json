@@ -1,0 +1,6 @@
+{
+  "name": "018 Bokone Bophirima",
+  "description": "Premium South African lifestyle and streetwear fashion brand. Shop knit dresses, hoodies, beanies, stripe knits, and limited edition drops.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
